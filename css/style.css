@@ -1,0 +1,345 @@
+/* переменные и сброс стилей */
+:root {
+    /* Цвета для светлой темы */
+    --gold-light: #D4AF37; /* светло-золотой */
+    --gold-dark: #B8941F; /* темно-золотой (для акцентов) */
+    --bg-light: #FDFBF7;
+    --text-dark: #2D2D2D;
+    
+    /* Цвета для темной темы */
+    --bg-dark: #0D0D0D;
+    --bg-charcoal: #1A1A1A;
+    --text-light: #F5F3EF; /* светлый текст */
+    --bg-medium-dark: #2A2A2A; /* новый цвет для разграничения */
+
+    /* шрифты */
+    /* имитация Black Gold Display (используем похожие гарнитуры) */
+    --font-heading: 'Copperplate Gothic Bold', 'Trajan Pro 3', 'Times New Roman', serif; 
+    --font-body: Garamond, 'Times New Roman', serif;
+
+    /* общие */
+    --transition: 0.4s ease-in-out;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body); /* изменен шрифт на Garamond */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+/* заголовки (изменен шрифт) */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: var(--font-heading); 
+}
+
+/* темная тема */
+body.dark-theme {
+    background-color: var(--bg-dark);
+    color: var(--text-light); 
+}
+
+/* в темной теме не-темные секции становятся угольно-черными */
+body.dark-theme .content-section:not(.section-dark) {
+    background-color: var(--bg-charcoal);
+    color: var(--text-light);
+}
+
+/* в темной теме темные секции остаются темно-черными */
+body.dark-theme .section-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* навигация */
+.navbar {
+    background: var(--bg-charcoal);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    color: var(--gold-light) !important;
+    font-size: 1.8rem;
+    font-weight: normal; /* скорректировано для Black Gold Display-подобного шрифта */
+    letter-spacing: 3px;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    position: relative;
+    transition: var(--transition);
+}
+
+/* подчеркивание при наведении */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: var(--gold-light);
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--gold-light) !important;
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+
+/* главная секция (header) */
+.hero-section {
+    height: 600px; /* фиксированная высота */
+    background-image: linear-gradient(rgba(13, 13, 13, 0.5), rgba(13, 13, 13, 0.5)), url('../photos/top.jpg'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-color: var(--bg-medium-dark); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.body.dark-theme .hero-section {
+    background-color: transparent;
+}
+
+.hero-title {
+    font-size: 5rem;
+    color: var(--gold-light);
+    letter-spacing: 8px;
+    /* тень текста */
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); 
+}
+
+.btn-custom {
+    background: var(--gold-light);
+    color: var(--bg-dark);
+    border: none;
+    padding: 1rem 3rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-custom:hover {
+    background: var(--gold-dark);
+    transform: translateY(-3px);
+}
+
+/* контентные секции */
+.content-section {
+    padding: 8rem 0;
+}
+
+.section-dark {
+    background-color: var(--bg-charcoal);
+    color: var(--text-light); 
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: var(--gold-dark);
+}
+
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background: var(--gold-dark);
+    margin: 1.5rem auto 0;
+}
+
+.text-gold {
+    color: var(--gold-dark); 
+}
+
+body.dark-theme .text-gold {
+    color: var(--gold-light);
+}
+
+/* карточки (характер/качества) */
+.my-card {
+    border: 1px solid var(--gold-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    height: 100%;
+    background-color: var(--bg-light); 
+}
+
+.my-card:hover {
+    /* трансформация при наведении */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.card-title, .quality-name {
+    color: var(--gold-dark);
+}
+
+.btn-outline-custom {
+    border: 2px solid var(--gold-dark);
+    color: var(--gold-dark);
+    transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+    background: var(--gold-dark);
+    color: var(--bg-light);
+}
+
+.details-hidden {
+    display: none;
+}
+
+/* стили для темной темы */
+body.dark-theme .my-card {
+    /* Делаем фон карточки темнее (bg-charcoal), чем фон секции (bg-charcoal) или такой же, но главное - явно задать цвет текста */
+    background-color: var(--bg-dark); 
+    border-color: var(--gold-dark);
+    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 & 3: Делаем текст внутри карточек светлым */
+}
+
+/* Обеспечиваем, что текст списка внутри карточки тоже светлый */
+body.dark-theme .my-card .quality-list li {
+    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 */
+}
+
+/* Обеспечиваем, что текст описания внутри карточки тоже светлый */
+body.dark-theme #character-details p {
+    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 */
+}
+
+body.dark-theme .btn-outline-custom {
+    color: var(--gold-light); /* исправлено: чтобы кнопка была видна */
+    border-color: var(--gold-light);
+}
+
+/* галерея (внешность) */
+.appearance-card {
+    text-align: center;
+}
+
+/* задаем цвет для lead-text в светлых секциях */
+.content-section:not(.section-dark) p.lead-text {
+    color: var(--text-dark);
+}
+
+/* Задаем цвет для lead-text в темных секциях (так как он по умолчанию светлый, просто убеждаемся) */
+.content-section.section-dark p.lead-text {
+    color: var(--text-light);
+}
+
+body.dark-theme .content-section p.lead-text {
+    color: var(--text-light);
+}
+
+.appearance-card img {
+    width: 100%;
+    /* фиксированная высота для всех фото */
+    height: 500px; 
+    object-fit: cover;
+    
+    /* рамка и скругление */
+    border: 3px solid var(--gold-light);
+    margin-bottom: 1rem;
+    border-radius: 5px; 
+}
+
+body.dark-theme .appearance-card img {
+    border-color: var(--gold-dark);
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* секция treatment - цитата и список */
+.section-dark .relationship-subheader {
+    color: var(--text-light) !important; 
+}
+
+body.dark-theme .relationship-subheader {
+    color: var(--text-light); 
+}
+
+/*стили для простого списка*/
+.relationship-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(212, 175, 55, 0.3); 
+    margin-left: 1.5rem;
+    list-style: disc;
+}
+
+.relationship-list li:last-child {
+    border-bottom: none;
+}
+
+/* цитата */
+.relationship-quote-card {
+    background-color: var(--bg-charcoal);
+    padding: 3rem;
+    border: 3px solid var(--gold-light);
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    color: var(--text-light); 
+    font-style: italic;
+}
+
+body.dark-theme .relationship-quote-card {
+    background-color: var(--bg-dark);
+    border-color: var(--gold-dark);
+}
+
+/* футер */
+.footer {
+    background-color: #fcfcfc; 
+    padding: 3rem 0 1.5rem;
+    color: #131313; 
+}
+
+/* адаптивность */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .content-section {
+        padding: 5rem 0;
+    }
+}
