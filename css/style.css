@@ -1,26 +1,22 @@
 /* переменные и сброс стилей */
 :root {
     /* Цвета для светлой темы */
-    --gold-light: #D4AF37; /* светло-золотой */
-    --gold-dark: #B8941F; /* темно-золотой (для акцентов) */
+    --gold-light: #D4AF37; 
+    --gold-dark: #B8941F;
     --bg-light: #FDFBF7;
     --text-dark: #2D2D2D;
     
     /* Цвета для темной темы */
     --bg-dark: #0D0D0D;
     --bg-charcoal: #1A1A1A;
-    --text-light: #F5F3EF; /* светлый текст */
-    --bg-medium-dark: #2A2A2A; /* новый цвет для разграничения */
-
+    --text-light: #F5F3EF; 
+    --bg-medium-dark: #2A2A2A; 
     /* шрифты */
-    /* имитация Black Gold Display (используем похожие гарнитуры) */
     --font-heading: 'Copperplate Gothic Bold', 'Trajan Pro 3', 'Times New Roman', serif; 
     --font-body: Garamond, 'Times New Roman', serif;
-
     /* общие */
     --transition: 0.4s ease-in-out;
 }
-
 
 * {
     margin: 0;
@@ -34,14 +30,14 @@ html {
 }
 
 body {
-    font-family: var(--font-body); /* изменен шрифт на Garamond */
+    font-family: var(--font-body); 
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.7;
     transition: background-color var(--transition), color var(--transition);
 }
 
-/* заголовки (изменен шрифт) */
+/* заголовки */
 h1, h2, h3, h4, h5, h6, .navbar-brand {
     font-family: var(--font-heading); 
 }
@@ -73,7 +69,7 @@ body.dark-theme .section-dark {
 .navbar-brand {
     color: var(--gold-light) !important;
     font-size: 1.8rem;
-    font-weight: normal; /* скорректировано для Black Gold Display-подобного шрифта */
+    font-weight: normal; 
     letter-spacing: 3px;
 }
 
@@ -107,7 +103,7 @@ body.dark-theme .section-dark {
 
 /* главная секция (header) */
 .hero-section {
-    height: 600px; /* фиксированная высота */
+    height: 600px; 
     background-image: linear-gradient(rgba(13, 13, 13, 0.5), rgba(13, 13, 13, 0.5)), url('../photos/top.jpg'); 
     background-size: cover; 
     background-position: center center; 
@@ -128,7 +124,6 @@ body.dark-theme .section-dark {
     font-size: 5rem;
     color: var(--gold-light);
     letter-spacing: 8px;
-    /* тень текста */
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.7); 
 }
 
@@ -217,24 +212,23 @@ body.dark-theme .text-gold {
 
 /* стили для темной темы */
 body.dark-theme .my-card {
-    /* Делаем фон карточки темнее (bg-charcoal), чем фон секции (bg-charcoal) или такой же, но главное - явно задать цвет текста */
     background-color: var(--bg-dark); 
     border-color: var(--gold-dark);
-    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 & 3: Делаем текст внутри карточек светлым */
+    color: var(--text-light); 
 }
 
-/* Обеспечиваем, что текст списка внутри карточки тоже светлый */
+/* текст списка внутри карточки тоже светлый */
 body.dark-theme .my-card .quality-list li {
-    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 */
+    color: var(--text-light);
 }
 
-/* Обеспечиваем, что текст описания внутри карточки тоже светлый */
+/* текст описания внутри карточки тоже светлый */
 body.dark-theme #character-details p {
-    color: var(--text-light); /* ИЗМЕНЕНИЕ 2 */
+    color: var(--text-light); 
 }
 
 body.dark-theme .btn-outline-custom {
-    color: var(--gold-light); /* исправлено: чтобы кнопка была видна */
+    color: var(--gold-light); 
     border-color: var(--gold-light);
 }
 
@@ -248,7 +242,7 @@ body.dark-theme .btn-outline-custom {
     color: var(--text-dark);
 }
 
-/* Задаем цвет для lead-text в темных секциях (так как он по умолчанию светлый, просто убеждаемся) */
+/* Задаем цвет для lead-text в темных секциях */
 .content-section.section-dark p.lead-text {
     color: var(--text-light);
 }
@@ -259,7 +253,6 @@ body.dark-theme .content-section p.lead-text {
 
 .appearance-card img {
     width: 100%;
-    /* фиксированная высота для всех фото */
     height: 500px; 
     object-fit: cover;
     
